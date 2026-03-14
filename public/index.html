@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quintessential Concierge and Home Services</title>
+  <meta name="description" content="White glove concierge and home services helping you maintain independence with dignity. Light housekeeping, errands, meal prep, home safety, and more." />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1B4D6E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Quintessential Concierge and Home Services" />
+  <meta property="og:description" content="White glove concierge and home services helping you maintain independence with dignity." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="/hero.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1B4D6E;
+      --navy-deep: #122F45;
+      --navy-light: #2A6B96;
+      --gold: #C4A43B;
+      --gold-light: #D4BA5E;
+      --gold-muted: #B8A876;
+      --cream: #FAF7F0;
+      --cream-dark: #F0EBE0;
+      --warm-white: #FDFCF9;
+      --text: #2C2C2C;
+      --text-light: #5A5A5A;
+      --text-muted: #8A8A8A;
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--warm-white);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+    }
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 1px 20px rgba(27, 77, 110, 0.08);
+      padding: 0.5rem 2rem;
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo img {
+      height: 50px;
+      transition: height 0.4s;
+    }
+    .nav.scrolled .nav-logo img {
+      height: 40px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 4px;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--navy-light) !important;
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 6px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .mobile-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      background: url('/hero.jpg') center center / cover no-repeat;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(253, 252, 249, 0.72) 0%,
+        rgba(250, 247, 240, 0.65) 40%,
+        rgba(250, 247, 240, 0.78) 100%
+      );
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-logo {
+      width: min(400px, 80%);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.2s;
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      color: var(--text);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.5s;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      color: var(--text);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.6s;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s;
+    }
+    .hero-cta:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(27, 77, 110, 0.2);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--navy);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 1.5rem;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 650px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--warm-white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-photo {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 30px rgba(27, 77, 110, 0.1);
+    }
+    .about-card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold), var(--navy));
+    }
+    .about-card blockquote {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .about-card cite {
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: var(--text-light);
+      line-height: 1.85;
+    }
+    .about-values {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .about-value {
+      flex: 1;
+    }
+    .about-value h4 {
+      font-family: var(--serif);
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .about-value p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ── PHOTO DIVIDER ── */
+    .photo-divider {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .photo-divider::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        var(--warm-white) 0%,
+        rgba(250, 247, 240, 0.35) 15%,
+        rgba(250, 247, 240, 0.35) 85%,
+        var(--cream) 100%
+      );
+    }
+    .photo-divider.dark-to-light::before {
+      background: linear-gradient(
+        180deg,
+        var(--navy-deep) 0%,
+        rgba(18, 47, 69, 0.4) 15%,
+        rgba(250, 247, 240, 0.35) 85%,
+        var(--cream) 100%
+      );
+    }
+    @media (max-width: 768px) {
+      .photo-divider { background-attachment: scroll; height: 200px; }
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--cream);
+      position: relative;
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .services-header .section-intro {
+      margin: 0 auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--warm-white);
+      border-radius: 10px;
+      padding: 2.2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(27, 77, 110, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(27, 77, 110, 0.08);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.3rem;
+    }
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .service-card li {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      padding: 0.35rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .service-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ── WHY US ── */
+    .why-us {
+      background: var(--navy-deep);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-us::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(ellipse at 100% 50%, rgba(196, 164, 59, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .why-us .section-label { color: var(--gold-light); }
+    .why-us .section-title { color: white; }
+    .why-us .section-intro { color: rgba(255, 255, 255, 0.7); }
+    .why-us-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .why-us-header .section-intro { margin: 0 auto; }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .pillar {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .pillar:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(196, 164, 59, 0.3);
+    }
+    .pillar-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.2rem;
+      border: 1.5px solid var(--gold-muted);
+      border-radius: 50%;
+    }
+    .pillar-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--gold-light);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .pillar h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      color: var(--gold-light);
+    }
+    .pillar p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+    }
+
+    /* ── NOTARY ── */
+    .notary {
+      background: var(--warm-white);
+      text-align: center;
+    }
+    .notary-card {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      border-radius: 12px;
+      padding: 3rem;
+      border: 1px solid rgba(196, 164, 59, 0.2);
+    }
+    .notary-card p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--cream);
+      position: relative;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info {
+      padding-top: 1rem;
+    }
+    .contact-info p {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-detail-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-detail div {
+      font-size: 0.9rem;
+    }
+    .contact-detail strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+    .contact-detail span {
+      color: var(--text-light);
+    }
+    .contact-detail a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-detail a:hover { color: var(--gold); }
+
+    /* Form */
+    .contact-form {
+      background: var(--warm-white);
+      border-radius: 12px;
+      padding: 2.5rem;
+      border: 1px solid rgba(27, 77, 110, 0.06);
+      box-shadow: 0 4px 30px rgba(27, 77, 110, 0.04);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(27, 77, 110, 0.15);
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--text);
+      background: white;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy-light);
+      box-shadow: 0 0 0 3px rgba(27, 77, 110, 0.08);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .form-submit:hover {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+    .form-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .form-message {
+      text-align: center;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .form-message.success {
+      display: block;
+      background: #e8f5e8;
+      color: #2e6e2e;
+      border: 1px solid #c8e6c8;
+    }
+    .form-message.error {
+      display: block;
+      background: #fde8e8;
+      color: #b33a3a;
+      border: 1px solid #f5c6c6;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--navy-deep);
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+    .footer-logo {
+      height: 45px;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+      filter: brightness(0) invert(1);
+    }
+    .footer p {
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    .footer a {
+      color: var(--gold-muted);
+      text-decoration: none;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillars { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .form-row { grid-template-columns: 1fr; }
+      .about-values { flex-direction: column; gap: 1rem; }
+    }
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; color: var(--navy); }
+      .mobile-toggle { display: block; z-index: 101; }
+      section { padding: 3.5rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">
+      <img src="/logo.png" alt="Quintessential Concierge and Home Services" />
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeNav()">About</a></li>
+      <li><a href="#services" onclick="closeNav()">Services</a></li>
+      <li><a href="#why" onclick="closeNav()">Why Us</a></li>
+      <li><a href="#contact" onclick="closeNav()" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <img src="/logo.png" alt="Quintessential Concierge and Home Services" class="hero-logo" />
+      <p class="hero-tagline">White glove services to maintain your independence</p>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">
+        Thoughtful, dependable home support that lets you live comfortably
+        in the place you love &mdash; on your terms.
+      </p>
+      <a href="#contact" class="hero-cta">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <img src="/about.jpg" alt="Friends enjoying time together" class="about-photo" loading="lazy" />
+          <div class="about-card">
+            <blockquote>
+              &ldquo;Everyone deserves to live with dignity, comfort, and a little extra help when they need it.&rdquo;
+            </blockquote>
+            <cite>&mdash; The Quintessential Promise</cite>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">Your Partner in<br />Comfortable Living</h2>
+          <p>
+            Quintessential Concierge and Home Services provides personalized,
+            compassionate support for those who value their independence. We
+            handle the small things &mdash; and the not-so-small things &mdash;
+            so you can focus on what matters most: enjoying life at home.
+          </p>
+          <p>
+            From light housekeeping and errands to meal preparation and home
+            safety, every service is delivered with care, respect, and the
+            attention to detail you deserve.
+          </p>
+          <div class="about-values">
+            <div class="about-value">
+              <h4>Compassionate</h4>
+              <p>Genuine care in every interaction</p>
+            </div>
+            <div class="about-value">
+              <h4>Dependable</h4>
+              <p>Consistent, reliable support</p>
+            </div>
+            <div class="about-value">
+              <h4>Respectful</h4>
+              <p>Your home, your preferences</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="photo-divider" style="background-image: url('/divider-tea.jpg')"></div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2 class="section-title">How We Help</h2>
+        <p class="section-intro">
+          Every service is tailored to your needs. Whether it&rsquo;s a little help
+          around the house or coordinating appointments, we&rsquo;re here for you.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3>Home Care &amp; Tidying</h3>
+          <ul>
+            <li>Light housekeeping and organizing</li>
+            <li>Laundry &mdash; sorting, washing, folding, hanging</li>
+            <li>Making beds and changing sheets</li>
+            <li>Recycling, trash, and compost</li>
+            <li>Taking cans to the curb</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <h3>Errands &amp; Shopping</h3>
+          <ul>
+            <li>Grocery shopping and delivery</li>
+            <li>Prescription pick-up</li>
+            <li>Library book pick-up</li>
+            <li>Mail assistance and sorting</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div>
+          <h3>Meal Planning &amp; Prep</h3>
+          <ul>
+            <li>Weekly meal plans</li>
+            <li>Food preparation and portioning</li>
+            <li>Chopping, prepping, and organizing ingredients</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+          <h3>Home Safety</h3>
+          <ul>
+            <li>Check smoke alarm batteries</li>
+            <li>Replace burned-out bulbs</li>
+            <li>Compile emergency contacts &amp; Smart911 setup</li>
+            <li>Light modifications for walkers or wheelchairs</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h3>Technology Assistance</h3>
+          <ul>
+            <li>Basic tech help and troubleshooting</li>
+            <li>Setting up streaming, podcasts, or audiobooks</li>
+            <li>Finding exercise or wellness content online</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <h3>Administrative Support</h3>
+          <ul>
+            <li>Paying bills and filling out forms</li>
+            <li>Mail management</li>
+            <li>Mobile notary services</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3>Scheduling &amp; Coordination</h3>
+          <ul>
+            <li>Doctor, hearing, and vision appointments</li>
+            <li>Repair and handyman coordination</li>
+            <li>Activities, volunteering, and learning opportunities</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-3.8 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+          <h3>Wellness &amp; Extras</h3>
+          <ul>
+            <li>Light gardening</li>
+            <li>Help with low-impact exercise and tai chi</li>
+            <li>Light pet care</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us" id="why">
+    <div class="container">
+      <div class="why-us-header reveal">
+        <p class="section-label">Why Quintessential</p>
+        <h2 class="section-title">Built on Trust, Delivered with Care</h2>
+        <p class="section-intro">
+          We&rsquo;re not just a service &mdash; we&rsquo;re a partner in your
+          day-to-day comfort and peace of mind.
+        </p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7Z"/></svg>
+          </span>
+          <h3>Personal Touch</h3>
+          <p>Every client receives a customized plan tailored to their unique needs, preferences, and routine.</p>
+        </div>
+        <div class="pillar reveal">
+          <span class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          <h3>Independence First</h3>
+          <p>Our goal is to support your independence &mdash; not replace it. We help where it matters, so you stay in control.</p>
+        </div>
+        <div class="pillar reveal">
+          <span class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2Z"/></svg>
+          </span>
+          <h3>White Glove Standard</h3>
+          <p>From the first call to every visit, expect the highest level of professionalism, care, and attention to detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="photo-divider dark-to-light" style="background-image: url('/divider-house.jpg')"></div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="section-label">Get in Touch</p>
+          <h2 class="section-title">Let&rsquo;s Talk About<br />What You Need</h2>
+          <p>
+            Whether you&rsquo;re exploring options for yourself or a loved one,
+            we&rsquo;re here to listen. Reach out and we&rsquo;ll find the right
+            way to help.
+          </p>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 7 12 13 2 7"/></svg></div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:hello@quintessentialconcierge.com">hello@quintessentialconcierge.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+12065551234">(206) 555-1234</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <strong>Service Area</strong>
+              <span>Greater Seattle Area</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(206) 555-1234" />
+          </div>
+          <div class="form-group">
+            <label for="message">How Can We Help?</label>
+            <textarea id="message" name="message" placeholder="Tell us a little about what you're looking for..." required></textarea>
+          </div>
+          <button type="button" class="form-submit" id="submitBtn" onclick="submitForm()">
+            Send Message
+          </button>
+          <div class="form-message" id="formMessage"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="/logo.png" alt="Quintessential" class="footer-logo" />
+    <p>&copy; 2026 Quintessential Concierge and Home Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ── Navigation ──
+    const nav = document.getElementById('nav');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    function closeNav() {
+      mobileToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+    }
+
+    // ── Active Nav Highlight ──
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ── Scroll Reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Contact Form ──
+    async function submitForm() {
+      const btn = document.getElementById('submitBtn');
+      const msg = document.getElementById('formMessage');
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        msg.className = 'form-message error';
+        msg.textContent = 'Please fill in your name, email, and message.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      msg.className = 'form-message';
+      msg.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message }),
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          msg.className = 'form-message success';
+          msg.textContent = data.message || 'Thank you! We\'ll be in touch soon.';
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('phone').value = '';
+          document.getElementById('message').value = '';
+        } else {
+          msg.className = 'form-message error';
+          msg.textContent = data.error || 'Something went wrong. Please try again.';
+        }
+      } catch (err) {
+        msg.className = 'form-message error';
+        msg.textContent = 'Could not send your message. Please try again later.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    }
+  </script>
+</body>
+</html>

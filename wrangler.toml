@@ -1,0 +1,13 @@
+name = "quintessential-concierge"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+[assets]
+directory = "./public"
+
+[vars]
+CONTACT_EMAIL = "nancy@example.com"  # Change to Nancy's email
+FROM_EMAIL = "contact@quintessentialconcierge.com"  # Must be verified in Resend
+
+# Set RESEND_API_KEY as a secret:
+# npx wrangler secret put RESEND_API_KEY
