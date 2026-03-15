@@ -6,8 +6,8 @@ compatibility_date = "2024-12-01"
 directory = "./public"
 
 [vars]
-CONTACT_EMAIL = "nancy@example.com"  # Change to Nancy's email
-FROM_EMAIL = "contact@quintessentialconcierge.com"  # Must be verified in Resend
+CONTACT_EMAIL = "nancyq_2@outlook.com"
+FROM_EMAIL = "hello@quintessentialconcierge.com"
 
 # Set RESEND_API_KEY as a secret:
 # npx wrangler secret put RESEND_API_KEY
