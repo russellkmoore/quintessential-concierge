@@ -6,21 +6,6 @@
   <title>Quintessential Concierge and Home Services</title>
   <meta name="description" content="White glove concierge and home services helping you maintain independence with dignity. Light housekeeping, errands, meal prep, home safety, and more." />
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#1B4D6E" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Quintessential Concierge and Home Services" />
-  <meta property="og:description" content="White glove concierge and home services helping you maintain independence with dignity." />
-  <meta property="og:image" content="/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="preload" as="image" href="/hero.jpg" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -111,8 +96,8 @@
       background: var(--gold);
       transition: width 0.3s;
     }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--gold); }
     .nav-cta {
       background: var(--navy) !important;
       color: white !important;
@@ -156,19 +141,20 @@
       text-align: center;
       padding: 6rem 2rem 4rem;
       position: relative;
-      background: url('/hero.jpg') center center / cover no-repeat;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(27, 77, 110, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(196, 164, 59, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
       overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(253, 252, 249, 0.72) 0%,
-        rgba(250, 247, 240, 0.65) 40%,
-        rgba(250, 247, 240, 0.78) 100%
-      );
+      top: -50%;
+      right: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(196, 164, 59, 0.03) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-content {
@@ -185,7 +171,7 @@
     .hero-tagline {
       font-family: var(--serif);
       font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-      color: var(--text);
+      color: var(--text-light);
       font-weight: 400;
       font-style: italic;
       margin-bottom: 1rem;
@@ -193,11 +179,11 @@
       animation: fadeUp 1s ease forwards 0.5s;
     }
     .hero-subtitle {
-      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-      color: var(--text);
-      max-width: 600px;
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      color: var(--text-muted);
+      max-width: 550px;
       margin: 0 auto 2.5rem;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.8;
       opacity: 0;
       animation: fadeUp 1s ease forwards 0.7s;
@@ -280,14 +266,6 @@
     .about-visual {
       position: relative;
     }
-    .about-photo {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-      aspect-ratio: 4 / 3;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 30px rgba(27, 77, 110, 0.1);
-    }
     .about-card {
       background: var(--cream);
       border-radius: 12px;
@@ -346,43 +324,19 @@
       margin: 0;
     }
 
-    /* ── PHOTO DIVIDER ── */
-    .photo-divider {
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      position: relative;
-    }
-    .photo-divider::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        var(--warm-white) 0%,
-        rgba(250, 247, 240, 0.35) 15%,
-        rgba(250, 247, 240, 0.35) 85%,
-        var(--cream) 100%
-      );
-    }
-    .photo-divider.dark-to-light::before {
-      background: linear-gradient(
-        180deg,
-        var(--navy-deep) 0%,
-        rgba(18, 47, 69, 0.4) 15%,
-        rgba(250, 247, 240, 0.35) 85%,
-        var(--cream) 100%
-      );
-    }
-    @media (max-width: 768px) {
-      .photo-divider { background-attachment: scroll; height: 200px; }
-    }
-
     /* ── SERVICES ── */
     .services {
       background: var(--cream);
       position: relative;
+    }
+    .services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-muted), transparent);
     }
     .services-header {
       text-align: center;
@@ -418,15 +372,8 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.3rem;
-    }
-    .service-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: white;
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      color: white;
+      font-size: 1.3rem;
     }
     .service-card h3 {
       font-family: var(--serif);
@@ -501,23 +448,9 @@
       border-color: rgba(196, 164, 59, 0.3);
     }
     .pillar-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 1.2rem;
-      border: 1.5px solid var(--gold-muted);
-      border-radius: 50%;
-    }
-    .pillar-icon svg {
-      width: 26px;
-      height: 26px;
-      stroke: var(--gold-light);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
     }
     .pillar h3 {
       font-family: var(--serif);
@@ -555,6 +488,15 @@
       background: var(--cream);
       position: relative;
     }
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-muted), transparent);
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
@@ -578,21 +520,14 @@
     .contact-detail-icon {
       width: 42px;
       height: 42px;
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
-      border-radius: 10px;
+      background: var(--navy);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
+      font-size: 1rem;
       flex-shrink: 0;
-    }
-    .contact-detail-icon svg {
-      width: 20px;
-      height: 20px;
-      stroke: white;
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
     .contact-detail div {
       font-size: 0.9rem;
@@ -718,8 +653,8 @@
     .footer-logo {
       height: 45px;
       margin-bottom: 1rem;
-      opacity: 0.85;
-      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      filter: brightness(2);
     }
     .footer p {
       font-size: 0.78rem;
@@ -811,7 +746,6 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-visual reveal">
-          <img src="/about.jpg" alt="Friends enjoying time together" class="about-photo" loading="lazy" />
           <div class="about-card">
             <blockquote>
               &ldquo;Everyone deserves to live with dignity, comfort, and a little extra help when they need it.&rdquo;
@@ -852,9 +786,6 @@
     </div>
   </section>
 
-  <!-- DIVIDER -->
-  <div class="photo-divider" style="background-image: url('/divider-tea.jpg')"></div>
-
   <!-- SERVICES -->
   <section class="services" id="services">
     <div class="container">
@@ -870,20 +801,19 @@
       <div class="services-grid">
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="service-icon">&#x1F3E0;</div>
           <h3>Home Care &amp; Tidying</h3>
           <ul>
             <li>Light housekeeping and organizing</li>
             <li>Laundry &mdash; sorting, washing, folding, hanging</li>
             <li>Making beds and changing sheets</li>
             <li>Recycling, trash, and compost</li>
-            <li>Copper and specialty surface cleaning</li>
             <li>Taking cans to the curb</li>
           </ul>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <div class="service-icon">&#x1F6D2;</div>
           <h3>Errands &amp; Shopping</h3>
           <ul>
             <li>Grocery shopping and delivery</li>
@@ -894,7 +824,7 @@
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div>
+          <div class="service-icon">&#x1F957;</div>
           <h3>Meal Planning &amp; Prep</h3>
           <ul>
             <li>Weekly meal plans</li>
@@ -904,7 +834,7 @@
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+          <div class="service-icon">&#x1F6E1;</div>
           <h3>Home Safety</h3>
           <ul>
             <li>Check smoke alarm batteries</li>
@@ -915,7 +845,7 @@
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div class="service-icon">&#x1F4F1;</div>
           <h3>Technology Assistance</h3>
           <ul>
             <li>Basic tech help and troubleshooting</li>
@@ -925,7 +855,7 @@
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="service-icon">&#x1F4CB;</div>
           <h3>Administrative Support</h3>
           <ul>
             <li>Paying bills and filling out forms</li>
@@ -935,7 +865,7 @@
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="service-icon">&#x1F4C5;</div>
           <h3>Scheduling &amp; Coordination</h3>
           <ul>
             <li>Doctor, hearing, and vision appointments</li>
@@ -945,7 +875,7 @@
         </div>
 
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-3.8 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+          <div class="service-icon">&#x1F33F;</div>
           <h3>Wellness &amp; Extras</h3>
           <ul>
             <li>Light gardening</li>
@@ -971,32 +901,23 @@
       </div>
       <div class="pillars">
         <div class="pillar reveal">
-          <span class="pillar-icon">
-            <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7Z"/></svg>
-          </span>
+          <span class="pillar-icon">&#x1F91D;</span>
           <h3>Personal Touch</h3>
           <p>Every client receives a customized plan tailored to their unique needs, preferences, and routine.</p>
         </div>
         <div class="pillar reveal">
-          <span class="pillar-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </span>
+          <span class="pillar-icon">&#x1F3E1;</span>
           <h3>Independence First</h3>
           <p>Our goal is to support your independence &mdash; not replace it. We help where it matters, so you stay in control.</p>
         </div>
         <div class="pillar reveal">
-          <span class="pillar-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2Z"/></svg>
-          </span>
+          <span class="pillar-icon">&#x2728;</span>
           <h3>White Glove Standard</h3>
           <p>From the first call to every visit, expect the highest level of professionalism, care, and attention to detail.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- DIVIDER -->
-  <div class="photo-divider dark-to-light" style="background-image: url('/divider-house.jpg')"></div>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
@@ -1011,17 +932,24 @@
             way to help.
           </p>
           <div class="contact-detail">
-            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 7 12 13 2 7"/></svg></div>
+            <div class="contact-detail-icon">&#x2709;</div>
             <div>
               <strong>Email</strong>
               <a href="mailto:hello@quintessentialconcierge.com">hello@quintessentialconcierge.com</a>
             </div>
           </div>
           <div class="contact-detail">
-            <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="contact-detail-icon">&#x260E;</div>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+12065551234">(206) 555-1234</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">&#x1F4CD;</div>
             <div>
               <strong>Service Area</strong>
-              <span>Bellevue, Kirkland, Redmond &amp; Renton</span>
+              <span>Greater Seattle Area</span>
             </div>
           </div>
         </div>
@@ -1057,7 +985,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <img src="/logo.png" alt="Quintessential" class="footer-logo" />
-    <p>&copy; 2026 Quintessential Concierge and Home Services. All rights reserved.</p>
+    <p>&copy; 2025 Quintessential Concierge and Home Services. All rights reserved.</p>
   </footer>
 
   <script>
@@ -1079,22 +1007,6 @@
       mobileToggle.classList.remove('open');
       navLinks.classList.remove('open');
     }
-
-    // ── Active Nav Highlight ──
-    const sections = document.querySelectorAll('section[id]');
-    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navAnchors.forEach(a => a.classList.remove('active'));
-          const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-          if (link) link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-
-    sections.forEach(s => sectionObserver.observe(s));
 
     // ── Scroll Reveal ──
     const reveals = document.querySelectorAll('.reveal');
